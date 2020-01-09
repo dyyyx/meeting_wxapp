@@ -1,0 +1,45 @@
+<!--pages/index/index.wxml-->
+<view>
+  <view wx:if="{{current == 'mine'}}">
+  <view class="userinfo">
+    <i-button wx:if="{{!hasUserInfo && canIUse}}" type="getUserInfo" bind:click="getUserInfo"> 获取头像昵称 </i-button>
+    <block wx:else>
+      <i-avatar src="{{userInfo.avatarUrl}}" size="large"></i-avatar>
+      <!-- <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image> -->
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <i-panel title="已预约的会议室" i-class="panel-title">
+    <view>
+    <i-cell-group>
+      <i-cell i-class="room-cell" title="会议室1" value="9:00-9:30" is-link url="/pages/room/info"></i-cell>
+      <i-cell i-class="room-cell" title="会议室2" value="10:00-10:30" is-link url="/pages/room/info"></i-cell>
+      <i-cell i-class="room-cell" title="会议室3" value="9:00-9:30" is-link url="/pages/room/info"></i-cell>
+    </i-cell-group>
+    </view>
+  </i-panel>
+  <i-panel title="已预约的设备" i-class="panel-title">
+    <view>
+    <i-cell-group>
+      <i-cell i-class="equi-cell" title="设备1" value="9:00-9:30" is-link url="/pages/equi/info"></i-cell>
+      <i-cell i-class="equi-cell" title="设备2" value="10:00-10:30" is-link url="/pages/equi/info"></i-cell>
+      <i-cell i-class="equi-cell" title="设备3" value="9:00-9:30" is-link url="/pages/equi/info"></i-cell>
+    </i-cell-group>
+    </view>
+  </i-panel>
+  </view>
+  <view wx:else="">
+  <i-cell-group>
+    <i-cell i-class="room-cell"  title="会议室1" label="2楼" value="2-5人" is-link url="/pages/roomInfo/roomInfo"></i-cell>
+    <i-cell i-class="room-cell"  title="会议室1" label="2楼" value="2-5人" is-link url="/pages/roomInfo/roomInfo"></i-cell>
+    <i-cell i-class="room-cell"  title="会议室1" label="2楼" value="2-5人" is-link url="/pages/roomInfo/roomInfo"></i-cell>
+    <i-cell i-class="room-cell"  title="会议室1" label="2楼" value="2-5人" is-link url="/pages/roomInfo/roomInfo"></i-cell>
+  </i-cell-group>
+  </view>
+ <i-tab-bar current="{{ current }}" bindchange="handleChange" fixed="true">
+    <!-- <i-tab-bar-item key="homepage" icon="homepage" current-icon="homepage_fill" title="Home"></i-tab-bar-item> -->
+    <i-tab-bar-item key="room" icon="time" current-icon="time_fill" title="会议室预约"></i-tab-bar-item>
+    <i-tab-bar-item key="equi" icon="activity" current-icon="activity_fill" title="设备预约"></i-tab-bar-item>
+    <i-tab-bar-item key="mine" icon="mine" current-icon="mine_fill" dot title="我的预约"></i-tab-bar-item>
+  </i-tab-bar>
+</view>
