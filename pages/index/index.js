@@ -1,7 +1,8 @@
 // pages/index/index.js
+var util = require('../../utils/util.js');
 //获取应用实例
-const app = getApp()
-
+const app = getApp();
+const nowDate = util.formatDate(new Date);
 Page({
 
   /**
@@ -11,7 +12,8 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    current: 'mine'
+    current: 'mine',
+    date: nowDate
   },
 
   /**
@@ -113,5 +115,12 @@ Page({
     } else {
       console.log(_this.current);
     }
-  }
+  },
+
+  bindDateChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      date: e.detail.value
+    })
+  },
 })

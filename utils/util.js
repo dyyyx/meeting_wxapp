@@ -14,6 +14,18 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const formatDate = date => {
+  const year = date.getFullYear()
+  const month = date.getMonth() + 1
+  const day = date.getDate()
+
+  return [year].map(formatNumber) + "年" + [month].map(formatNumber) + "月" + [day].map(formatNumber) + "日"
+}
+
 module.exports = {
   formatTime: formatTime
+}
+
+module.exports = {
+  formatDate: formatDate
 }

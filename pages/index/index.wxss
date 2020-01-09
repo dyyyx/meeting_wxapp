@@ -22,15 +22,32 @@
 
 .room-cell{
   /* width: 128rpx; */
-  height: 50rpx;
-  font-weight: bold;
+  height: 60rpx;
+  /* font-weight: bold; */
 }
 
-.panel-title title{
-  font-weight: bolder;
-  font-size: 26px;
+.equi-cell{
+  /* width: 128rpx; */
+  height: 60rpx;
+  /* font-weight: bold; */
 }
 
-.inline-button{
-  
+.panel-title{
+  /* font-weight: bolder; */
+  /* font-size: xx-small; */
+}
+
+.room-group{
+  margin: 20rpx;
+}
+
+.time-icon{
+  margin-left: 25rpx;
+}
+
+picker{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }

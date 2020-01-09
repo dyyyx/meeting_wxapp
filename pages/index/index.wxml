@@ -9,37 +9,52 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
-  <i-panel title="已预约的会议室" i-class="panel-title">
+  <i-panel title="今日已预约的会议室" i-class="panel-title">
     <view>
     <i-cell-group>
-      <i-cell i-class="room-cell" title="会议室1" value="9:00-9:30" is-link url="/pages/room/info"></i-cell>
-      <i-cell i-class="room-cell" title="会议室2" value="10:00-10:30" is-link url="/pages/room/info"></i-cell>
-      <i-cell i-class="room-cell" title="会议室3" value="9:00-9:30" is-link url="/pages/room/info"></i-cell>
+      <i-cell title="会议室1" value="9:00-9:30" is-link url="/pages/room/info"></i-cell>
+      <i-cell title="会议室2" value="10:00-10:30" is-link url="/pages/room/info"></i-cell>
+      <i-cell title="会议室3" value="9:00-9:30" is-link url="/pages/room/info"></i-cell>
     </i-cell-group>
     </view>
   </i-panel>
-  <i-panel title="已预约的设备" i-class="panel-title">
+  <i-panel title="今日已预约的设备" i-class="panel-title">
     <view>
     <i-cell-group>
-      <i-cell i-class="equi-cell" title="设备1" value="9:00-9:30" is-link url="/pages/equi/info"></i-cell>
-      <i-cell i-class="equi-cell" title="设备2" value="10:00-10:30" is-link url="/pages/equi/info"></i-cell>
-      <i-cell i-class="equi-cell" title="设备3" value="9:00-9:30" is-link url="/pages/equi/info"></i-cell>
+      <i-cell title="设备1" value="9:00-9:30" is-link url="/pages/equi/info"></i-cell>
+      <i-cell title="设备2" value="10:00-10:30" is-link url="/pages/equi/info"></i-cell>
+      <i-cell title="设备3" value="9:00-9:30" is-link url="/pages/equi/info"></i-cell>
     </i-cell-group>
     </view>
   </i-panel>
   </view>
-  <view wx:else="">
-  <i-cell-group>
+  <view wx:elif="{{current == 'room'}}">
+
+  <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+    <i-icon i-class="time-icon" type="clock"  size="20"/>
+    <view class="picker">
+      {{date}}
+    </view>
+  </picker>
+  <i-cell-group i-class="room-group">
     <i-cell i-class="room-cell"  title="会议室1" label="2楼" value="2-5人" is-link url="/pages/roomInfo/roomInfo"></i-cell>
     <i-cell i-class="room-cell"  title="会议室1" label="2楼" value="2-5人" is-link url="/pages/roomInfo/roomInfo"></i-cell>
     <i-cell i-class="room-cell"  title="会议室1" label="2楼" value="2-5人" is-link url="/pages/roomInfo/roomInfo"></i-cell>
     <i-cell i-class="room-cell"  title="会议室1" label="2楼" value="2-5人" is-link url="/pages/roomInfo/roomInfo"></i-cell>
   </i-cell-group>
   </view>
+  <view wx:else>
+  <i-cell-group>
+    <i-cell i-class="equi-cell"  title="设备1" label="2楼" value="2个" is-link url="/pages/equiInfo/equiInfo"></i-cell>
+    <i-cell i-class="equi-cell"  title="设备1" label="2楼" value="3个" is-link url="/pages/equiInfo/equiInfo"></i-cell>
+    <i-cell i-class="equi-cell"  title="设备1" label="2楼" value="2个" is-link url="/pages/equiInfo/equiInfo"></i-cell>
+    <i-cell i-class="equi-cell"  title="设备1" label="2楼" value="5个" is-link url="/pages/equiInfo/equiInfo"></i-cell>
+  </i-cell-group>
+  </view>
  <i-tab-bar current="{{ current }}" bindchange="handleChange" fixed="true">
     <!-- <i-tab-bar-item key="homepage" icon="homepage" current-icon="homepage_fill" title="Home"></i-tab-bar-item> -->
     <i-tab-bar-item key="room" icon="time" current-icon="time_fill" title="会议室预约"></i-tab-bar-item>
     <i-tab-bar-item key="equi" icon="activity" current-icon="activity_fill" title="设备预约"></i-tab-bar-item>
-    <i-tab-bar-item key="mine" icon="mine" current-icon="mine_fill" dot title="我的预约"></i-tab-bar-item>
+    <i-tab-bar-item key="mine" icon="mine" current-icon="mine_fill" title="我的预约"></i-tab-bar-item>
   </i-tab-bar>
 </view>
